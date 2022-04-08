@@ -9,7 +9,7 @@ function Comments(props) {
       </div>
     );
   });
-
+  const hideUsers = !usersOn ? {display: "none"} : null
   function handleUserOnClick(){
       setUsersOn((usersOn) => !usersOn)
   }
@@ -18,8 +18,8 @@ function Comments(props) {
     <div>
       <button onClick={handleUserOnClick}>
           {usersOn ? "Hide Comments" : "Show Comments"}</button>
-      <h1>2 Comments</h1>
-      {listOfUsers}
+      <div style={hideUsers}><h1>2 Comments</h1>
+      {listOfUsers}</div>
     </div>
   );
 }
