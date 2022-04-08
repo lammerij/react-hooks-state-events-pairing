@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 function Comments(props) {
-//   console.log(props.comments);
-  const listOfUsers = props.comments.map((user) => <h2>{user.user}</h2>);
-  const listOfComments = props.comments.map((comment) => (
-    <p>{comment.comment}</p>
-  ));
+    const[usersOn, setUsersOn] = useState(true)
+  const listOfUsers = props.comments.map((user) => {
+    return (
+      <div>
+        <h2>{user.user}</h2> <p>{user.comment}</p>
+      </div>
+    );
+  });
+
+  function handleUserOnClick(){
+      setUsersOn((usersOn) => !usersOn)
+  }
 
   return (
     <div>
-      <button>
-        Hide Comments
-      </button>
+      <button onClick={handleUserOnClick}>
+          {usersOn ? "Hide Comments" : "Show Comments"}</button>
       <h1>2 Comments</h1>
       {listOfUsers}
-      {listOfComments}
     </div>
   );
 }

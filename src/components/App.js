@@ -8,6 +8,7 @@ function App() {
   // console.log("Here's your data:", video);
   const [upVotes, setUpVotes] = useState(video.upvotes);
   const [downVotes, setDownVotes] = useState(video.downvotes);
+ 
 
   function handleUpVotesClick(event) {
     // console.log(event.target.value);
